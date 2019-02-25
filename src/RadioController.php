@@ -2,8 +2,9 @@
 
 namespace jlaucho\conection_ubiquiti;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
+use jlaucho\conection_ubiquiti\Middleware\ConectionTrue;
 use jlaucho\conection_ubiquiti\Models\InformationRadio;
 use phpseclib\Net\SSH2;
 
@@ -20,14 +21,26 @@ abstract class RadioController extends Controller
 
     public function __construct(InformationRadio $radio, string $IP)
     {
+        $this->middleware(function($request, $next) {
+            $conection = false;
+            if (!$conection) {
+                return redirect('/');
+            }
+            return $next($request);
+        });
         $this->interface = 'eth0';
         $this->ip = $IP;
-//        dd($this->ip);
         $this->getConection($radio);
+
+
+
         if(! $this->status_device_conection[0]){
-            return null;
+
+            return redirect()->back();
         }
     }
+
+
 
     public function getIpConection() {
         return $this->ip;
@@ -48,8 +61,15 @@ abstract class RadioController extends Controller
     private function stopFaulire($message){
         $this->status_device_conection[] = false;
         $this->status_device_conection[] = $message;
+    }
 
-//        dd($this->status_device_conection, 'RadioController');
+    public function redirectPath()
+    {
+        if (method_exists($this, 'redirectTo')) {
+            return $this->redirectTo();
+        }
+
+        return property_exists($this, 'redirectTo') ? $this->redirectTo : '/home';
     }
 
 
@@ -60,7 +80,7 @@ abstract class RadioController extends Controller
         $this->ssh = new SSH2($ip);
 
         try {
-            if (!$this->ssh->login($radio->user_equip, $radio->password_equip)) {
+            if (!$this->ssh->login($radio->user_device, $radio->password_device)) {
                 $this->stopFaulire("Error de autenticacion, revise credenciales");
                 return;
             }
