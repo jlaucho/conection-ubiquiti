@@ -3,6 +3,7 @@
     "description": "This realize conection ssh, to ubiquiti radio",
     "type": "library",
     "license": "MIT",
+    "version": "dev-master",
     "authors": [
         {
             "name": "Jesus Laucho",
