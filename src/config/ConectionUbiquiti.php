@@ -22,5 +22,15 @@ return [
     |
     */
 
-    'default' => 'asistente_administrativo',
+    /*
+    |--------------------------------------------------------------------------
+    | Location of Models in yous system
+    |--------------------------------------------------------------------------
+    |
+    | This value is the location.
+    |
+    */
+
+    'direction_model' => env('UBIQUITI_MODEL', 'app'),
+
 ];
