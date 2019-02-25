@@ -1,5 +1,5 @@
 {
-    "name": "jlaucho/conection_ubiquiti",
+    "name": "jlaucho/conection-ubiquiti",
     "description": "This realize conection ssh, to ubiquiti radio",
     "type": "library",
     "license": "MIT",
