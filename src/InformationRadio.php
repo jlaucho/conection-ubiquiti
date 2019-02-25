@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class InformationRadio extends Model
 {
     use softDeletes;
-    protected $table = 'equips';
+    protected $table = 'devices';
     protected $fillable = [
         'MAC', 'model_device', 'user_device', 'password_device', 'status_device', 'payload'
     ];

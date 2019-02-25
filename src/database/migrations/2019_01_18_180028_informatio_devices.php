@@ -34,6 +34,6 @@ class InformatioDevices extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('equips');
+        Schema::dropIfExists('devices');
     }
 }
