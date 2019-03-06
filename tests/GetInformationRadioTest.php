@@ -21,8 +21,8 @@ class GetInformationRadioTest extends TestCase
     public function test_radio_information()
     {
         $radio = new InformationRadio();
-        $radio->user_equip = 'admin';
-        $radio->password_equip = 'g@nc0MCBO!';
+        $radio->user_device = 'admin';
+        $radio->password_device = 'g@nc0MCBO!';
 
         $IP = $this->IP;
 
@@ -33,8 +33,8 @@ class GetInformationRadioTest extends TestCase
 
     public function test_radio_get_eth0_up () {
         $radio = new InformationRadio();
-        $radio->user_equip = 'admin';
-        $radio->password_equip = 'g@nc0MCBO!';
+        $radio->user_device = 'admin';
+        $radio->password_device = 'g@nc0MCBO!';
 
         $IP = $this->IP;
 
@@ -45,8 +45,8 @@ class GetInformationRadioTest extends TestCase
 
     public function test_radio_get_status_conection(){
         $radio = new InformationRadio();
-        $radio->user_equip = 'admin';
-        $radio->password_equip = 'g@nc0MCBO!';
+        $radio->user_device = 'admin';
+        $radio->password_device = 'g@nc0MCBO!';
 
         $IP = $this->IP;
 
@@ -58,8 +58,8 @@ class GetInformationRadioTest extends TestCase
 
     public function test_radio_get_eth0_number_interface() {
         $radio = new InformationRadio();
-        $radio->user_equip = 'admin';
-        $radio->password_equip = 'g@nc0MCBO!';
+        $radio->user_device = 'admin';
+        $radio->password_device = 'g@nc0MCBO!';
 
         $IP = $this->IP;
 
@@ -71,8 +71,8 @@ class GetInformationRadioTest extends TestCase
     //Funcion pendiente por terminar
     public function test_radio_get_mode_radio() {
         $radio = new InformationRadio();
-        $radio->user_equip = 'admin';
-        $radio->password_equip = 'g@nc0!';
+        $radio->user_device = 'admin';
+        $radio->password_device = 'g@nc0!';
 
         $IP = '10.3.3.87';//$this->IP;
 
@@ -83,8 +83,8 @@ class GetInformationRadioTest extends TestCase
 
     public function test_radio_get_name_radio() {
         $radio = new InformationRadio();
-        $radio->user_equip = 'admin';
-        $radio->password_equip = 'g@nc0MCBO!';
+        $radio->user_device = 'admin';
+        $radio->password_device = 'g@nc0MCBO!';
 
         $IP = $this->IP;
 
@@ -96,8 +96,8 @@ class GetInformationRadioTest extends TestCase
 
     public function test_radio_get_model_radio() {
         $radio = new InformationRadio();
-        $radio->user_equip = 'admin';
-        $radio->password_equip = 'g@nc0MCBO!';
+        $radio->user_device = 'admin';
+        $radio->password_device = 'g@nc0MCBO!';
 
         $IP = $this->IP;
 
@@ -110,8 +110,8 @@ class GetInformationRadioTest extends TestCase
 
     public function test_radio_get_MAC() {
         $radio = new InformationRadio();
-        $radio->user_equip = 'admin';
-        $radio->password_equip = 'g@nc0MCBO!';
+        $radio->user_device = 'admin';
+        $radio->password_device = 'g@nc0MCBO!';
 
         $IP = $this->IP;
 
@@ -124,8 +124,8 @@ class GetInformationRadioTest extends TestCase
 
     public function test_radio_system () {
         $radio = new InformationRadio();
-        $radio->user_equip = 'admin';
-        $radio->password_equip = 'g@nc0MCBO!';
+        $radio->user_device = 'admin';
+        $radio->password_device = 'g@nc0MCBO!';
 
         $IP = $this->IP;
 
@@ -138,8 +138,8 @@ class GetInformationRadioTest extends TestCase
 
     public function test_active_tshaper(){
         $radio = new InformationRadio();
-        $radio->user_equip = 'admin';
-        $radio->password_equip = 'g@nc0MCBO!';
+        $radio->user_device = 'admin';
+        $radio->password_device = 'g@nc0MCBO!';
 
         $IP = $this->IP;
 
@@ -150,8 +150,8 @@ class GetInformationRadioTest extends TestCase
 
     public function test_rate_down_kbps () {
         $radio = new InformationRadio();
-        $radio->user_equip = 'admin';
-        $radio->password_equip = 'g@nc0MCBO!';
+        $radio->user_device = 'admin';
+        $radio->password_device = 'g@nc0MCBO!';
 
         $IP = $this->IP;
 
@@ -164,8 +164,8 @@ class GetInformationRadioTest extends TestCase
 
     public function test_rate_up_kbps () {
         $radio = new InformationRadio();
-        $radio->user_equip = 'admin';
-        $radio->password_equip = 'g@nc0MCBO!';
+        $radio->user_device = 'admin';
+        $radio->password_device = 'g@nc0MCBO!';
 
         $IP = $this->IP;
 
@@ -177,8 +177,8 @@ class GetInformationRadioTest extends TestCase
 
     public function test_wlan_number_conections () {
         $radio = new InformationRadio();
-        $radio->user_equip = 'admin';
-        $radio->password_equip = 'g@nc0!';
+        $radio->user_device = 'admin';
+        $radio->password_device = 'g@nc0!';
 
         $IP = '10.2.14.24'; //$this->IP;
 
@@ -191,8 +191,8 @@ class GetInformationRadioTest extends TestCase
     public function test_uptime_device ()
     {
         $radio = new InformationRadio();
-        $radio->user_equip = 'admin';
-        $radio->password_equip = 'g@nc0!';
+        $radio->user_device = 'admin';
+        $radio->password_device = 'g@nc0!';
 
         $IP = '10.3.3.87';
 
@@ -204,8 +204,8 @@ class GetInformationRadioTest extends TestCase
     public function test_get_tshaper_active ()
     {
         $radio = new InformationRadio();
-        $radio->user_equip = 'admin';
-        $radio->password_equip = 'g@nc0MCBO!';
+        $radio->user_device = 'admin';
+        $radio->password_device = 'g@nc0MCBO!';
 
         $IP = $this->IP;
 
@@ -218,8 +218,8 @@ class GetInformationRadioTest extends TestCase
     public function test_get_ifconfig ()
     {
         $radio = new InformationRadio();
-        $radio->user_equip = 'admin';
-        $radio->password_equip = 'g@nc0MCBO!';
+        $radio->user_device = 'admin';
+        $radio->password_device = 'g@nc0MCBO!';
 
         $IP = $this->IP;
 
@@ -235,8 +235,8 @@ class GetInformationRadioTest extends TestCase
     public function test_get_ssid ()
     {
         $radio = new InformationRadio();
-        $radio->user_equip = 'admin';
-        $radio->password_equip = 'g@nc0!';
+        $radio->user_device = 'admin';
+        $radio->password_device = 'g@nc0!';
 
         $IP = '10.3.3.87'; //$this->IP;
 
@@ -252,8 +252,8 @@ class GetInformationRadioTest extends TestCase
     public function test_get_signal ()
     {
         $radio = new InformationRadio();
-        $radio->user_equip = 'admin';
-        $radio->password_equip = 'g@nc0!';
+        $radio->user_device = 'admin';
+        $radio->password_device = 'g@nc0!';
 
         $IP = '10.3.3.87'; //$this->IP;
 
@@ -271,8 +271,8 @@ class GetInformationRadioTest extends TestCase
     public function test_get_CCQ ()
     {
         $radio = new InformationRadio();
-        $radio->user_equip = 'admin';
-        $radio->password_equip = 'g@nc0!';
+        $radio->user_device = 'admin';
+        $radio->password_device = 'g@nc0!';
 
         $IP = '10.3.3.87'; //$this->IP;
 
@@ -286,8 +286,8 @@ class GetInformationRadioTest extends TestCase
     public function test_get_frequency ()
     {
         $radio = new InformationRadio();
-        $radio->user_equip = 'admin';
-        $radio->password_equip = 'g@nc0!';
+        $radio->user_device = 'admin';
+        $radio->password_device = 'g@nc0!';
 
         $IP = '10.3.3.87'; //$this->IP;
 
@@ -304,8 +304,8 @@ class GetInformationRadioTest extends TestCase
     public function test_get_firmware ()
     {
         $radio = new InformationRadio();
-        $radio->user_equip = 'admin';
-        $radio->password_equip = 'g@nc0MCBO!';
+        $radio->user_device = 'admin';
+        $radio->password_device = 'g@nc0MCBO!';
 
         $IP = '192.168.254.168'; //$this->IP;
 //        $IP = '192.168.254.169'; //$this->IP;
@@ -321,8 +321,8 @@ class GetInformationRadioTest extends TestCase
     public function test_get_channel_bandwidth ()
     {
         $radio = new InformationRadio();
-        $radio->user_equip = 'admin';
-        $radio->password_equip = 'g@nc0!';
+        $radio->user_device = 'admin';
+        $radio->password_device = 'g@nc0!';
 
         $IP = '10.3.3.87'; //$this->IP;
 
@@ -337,8 +337,8 @@ class GetInformationRadioTest extends TestCase
     public function test_get_lan_conection()
     {
         $radio = new InformationRadio();
-        $radio->user_equip = 'admin';
-        $radio->password_equip = 'g@nc0!';
+        $radio->user_device = 'admin';
+        $radio->password_device = 'g@nc0!';
 
 //        $IP = $this->IP;
         $IP = '10.3.3.87'; //$this->IP;
@@ -355,8 +355,8 @@ class GetInformationRadioTest extends TestCase
     public function test_base_version_firmWare()
     {
         $radio = new InformationRadio();
-        $radio->user_equip = 'admin';
-        $radio->password_equip = 'g@nc0MCBO!';
+        $radio->user_device = 'admin';
+        $radio->password_device = 'g@nc0MCBO!';
 
         $IP = '192.168.254.168'; //$this->IP;
 //        $IP = '192.168.254.169'; //$this->IP;
@@ -371,8 +371,8 @@ class GetInformationRadioTest extends TestCase
     public function test_wireless_list_channel()
     {
         $radio = new InformationRadio();
-        $radio->user_equip = 'admin';
-        $radio->password_equip = 'g@nc0MCBO!';
+        $radio->user_device = 'admin';
+        $radio->password_device = 'g@nc0MCBO!';
 
 //        $IP = '192.168.254.168'; //$this->IP;
         $IP = '192.168.254.169'; //$this->IP;
@@ -386,8 +386,8 @@ class GetInformationRadioTest extends TestCase
     public function test_wireless_list_status()
     {
         $radio = new InformationRadio();
-        $radio->user_equip = 'admin';
-        $radio->password_equip = 'g@nc0MCBO!';
+        $radio->user_device = 'admin';
+        $radio->password_device = 'g@nc0MCBO!';
 
 //        $IP = '192.168.254.168'; //$this->IP;
         $IP = '192.168.254.169'; //$this->IP;

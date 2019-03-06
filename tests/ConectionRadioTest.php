@@ -21,8 +21,8 @@ class ConectionRadioTest extends TestCase
     public function test_radio_error_comunication()
     {
         $radio = new InformationRadio();
-        $radio->user_equip = 'admin';
-        $radio->password_equip = 'g@nc0MCBO!';
+        $radio->user_device = 'admin';
+        $radio->password_device = 'g@nc0MCBO!';
 
 
         $IP = '10.255.255.13';
@@ -36,8 +36,8 @@ class ConectionRadioTest extends TestCase
     public function test_radio_error_auth()
     {
         $radio = new InformationRadio();
-        $radio->user_equip = 'admi';
-        $radio->password_equip = 'g@nc0MCBO!';
+        $radio->user_device = 'admi';
+        $radio->password_device = 'g@nc0MCBO!';
 
 
         $IP = '192.168.254.169';

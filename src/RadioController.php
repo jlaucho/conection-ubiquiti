@@ -3,8 +3,9 @@
 namespace jlaucho\conection_ubiquiti;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Http\Request;
-use jlaucho\conection_ubiquiti\Middleware\ConectionTrue;
+use jlaucho\conection_ubiquiti\Exception\AutenticationDeviceException;
 use jlaucho\conection_ubiquiti\Models\InformationRadio;
 use phpseclib\Net\SSH2;
 
@@ -21,23 +22,27 @@ abstract class RadioController extends Controller
 
     public function __construct(InformationRadio $radio, string $IP)
     {
-        $this->middleware(function($request, $next) {
-            $conection = false;
-            if (!$conection) {
-                return redirect('/');
-            }
-            return $next($request);
-        });
+
         $this->interface = 'eth0';
         $this->ip = $IP;
         $this->getConection($radio);
 
 
-
         if(! $this->status_device_conection[0]){
+//            return redirect()->back();
 
-            return redirect()->back();
+//
+//            throw new \Exception(
+//                'No Autorized',
+//                404,
+//                $this->redirectTo($request = null)
+//            );
         }
+    }
+
+    protected function redirectTo($request)
+    {
+            return redirect()->back();
     }
 
 
@@ -66,7 +71,7 @@ abstract class RadioController extends Controller
     public function redirectPath()
     {
         if (method_exists($this, 'redirectTo')) {
-            return $this->redirectTo();
+            return $this->redirectTo('');
         }
 
         return property_exists($this, 'redirectTo') ? $this->redirectTo : '/home';
@@ -82,11 +87,12 @@ abstract class RadioController extends Controller
         try {
             if (!$this->ssh->login($radio->user_device, $radio->password_device)) {
                 $this->stopFaulire("Error de autenticacion, revise credenciales");
-                return;
+                $this->redirectPath();
+//                return;
             }
         } catch (\Exception $e) {
             $this->stopFaulire("Error de comunicacion con el equipo");
-            return;
+            $this->redirectTo($request = null);
         }
 
         $this->status_device_conection[] = true;
