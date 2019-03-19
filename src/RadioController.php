@@ -93,6 +93,7 @@ abstract class RadioController extends Controller
         } catch (\Exception $e) {
             $this->stopFaulire("Error de comunicacion con el equipo");
             $this->redirectTo($request = null);
+            return;
         }
 
         $this->status_device_conection[] = true;
