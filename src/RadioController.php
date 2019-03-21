@@ -19,25 +19,53 @@ abstract class RadioController extends Controller
     public $interface;
     public $mca_status;
     public $status_device_conection = [];
+    public $response;
 
     public function __construct(InformationRadio $radio, string $IP)
     {
 
         $this->interface = 'eth0';
         $this->ip = $IP;
-        $this->getConection($radio);
+
+        $response['IP'] = $IP;
+        // $this->getConection($radio);
+
+        // $passwords = config('ConectionUbiquiti.password_available');
+        $passwords = ['g@nc0!', 'g@nc0MCBO!'];
+
+        // dd($passwords);
+
+        foreach ($passwords as $password){
+
+            $radio->password_device = $password;
 
 
-        if(! $this->status_device_conection[0]){
-//            return redirect()->back();
+            $this->getConection($radio);
 
-//
-//            throw new \Exception(
-//                'No Autorized',
-//                404,
-//                $this->redirectTo($request = null)
-//            );
+            if(!$this->status_device_conection[0] && $this->status_device_conection[2] == 'password'){
+                $response[$this->ip]['Conection'] = false;
+                $response[$this->ip]['status'] = $this->status_device_conection[1];
+                continue;
+            }
+            if($this->status_device_conection[0]) break;
         }
+
+        if(!$this->status_device_conection[0] && $this->status_device_conection[2] == 'conection') {
+            $response[$this->ip]['Conection'] = false;
+            $response[$this->ip]['status'] = $this->status_device_conection[1];
+            // continue;
+        }
+        if($this->status_device_conection[0]) {
+            $response[$this->ip]['Conection'] = true;
+            $response[$this->ip]['status'] = $this->status_device_conection[1];
+            $response[$this->ip]['password'] = $password;
+            // continue;
+        }
+            // if($IP == '10.3.0.9') dd($response);
+
+        $this->response = $response;
+
+            // $this->response = $response;
     }
 
     protected function redirectTo($request)
@@ -63,9 +91,10 @@ abstract class RadioController extends Controller
         return $this->numberAth0();
     }
 
-    private function stopFaulire($message){
-        $this->status_device_conection[] = false;
-        $this->status_device_conection[] = $message;
+    private function stopFaulire($message, $type){
+        $this->status_device_conection[0] = false;
+        $this->status_device_conection[1] = $message;
+        $this->status_device_conection[2] = $type;
     }
 
     public function redirectPath()
@@ -86,18 +115,16 @@ abstract class RadioController extends Controller
 
         try {
             if (!$this->ssh->login($radio->user_device, $radio->password_device)) {
-                $this->stopFaulire("Error de autenticacion, revise credenciales");
-                $this->redirectPath();
-//                return;
+                $this->stopFaulire("Error de autenticacion, revise credenciales", "password");
+               return;
             }
         } catch (\Exception $e) {
-            $this->stopFaulire("Error de comunicacion con el equipo");
-            $this->redirectTo($request = null);
+            $this->stopFaulire("Error de comunicacion con el equipo", "conection");
             return;
         }
 
-        $this->status_device_conection[] = true;
-        $this->status_device_conection[] = "Conexion establecida correctamente";
+        $this->status_device_conection[0] = true;
+        $this->status_device_conection[1] = "Conexion establecida correctamente";
 
         $this->ifconfig = $this->ifconfig();
         $this->system = $this->system();

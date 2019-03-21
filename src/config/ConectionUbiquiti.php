@@ -33,4 +33,18 @@ return [
 
     'direction_model' => env('UBIQUITI_MODEL', 'app'),
 
+     /*
+    |--------------------------------------------------------------------------
+    | Set password for radio
+    |--------------------------------------------------------------------------
+    |
+    | This value is password used for recover information.
+    |
+    */
+
+    'password_available' => [
+        'secret1',
+        'secret2',
+    ],
+
 ];

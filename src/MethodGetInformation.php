@@ -57,6 +57,7 @@ class MethodGetInformation extends RadioController
             $preg_array = explode('=', $preg_array[0]);
             return $mode = $preg_array[1];
         }
+
     }
 
     public function deviceName()
@@ -128,8 +129,6 @@ class MethodGetInformation extends RadioController
             $timeUp = $preg_array[1];
         }
 
-        //dd($seconds);
-
         $dtF = new \DateTime('@0');
         //dd($dtF);
 
@@ -180,7 +179,8 @@ class MethodGetInformation extends RadioController
             $ccq = $preg_array[1];
         }
 
-        return $ccq / 10;
+
+        return (count($preg_array)) ? $ccq / 10 : 'N/A';
     }
 
     public function frequency()

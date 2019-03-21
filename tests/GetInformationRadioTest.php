@@ -74,7 +74,8 @@ class GetInformationRadioTest extends TestCase
         $radio->user_device = 'admin';
         $radio->password_device = 'g@nc0!';
 
-        $IP = '10.3.3.87';//$this->IP;
+        // $IP = '10.3.3.87';
+        $IP = $this->IP;
 
         $response = new GetInformatioRadio($radio, $IP);
 
@@ -103,7 +104,7 @@ class GetInformationRadioTest extends TestCase
 
         $response = new GetInformatioRadio($radio, $IP);
 
-        $this->assertContains('NanoStation', $response->getDeviceModel());
+        $this->assertContains('LiteBeam', $response->getDeviceModel());
         $this->assertIsNotBool($response->getDeviceModel());
 
     }
@@ -180,7 +181,8 @@ class GetInformationRadioTest extends TestCase
         $radio->user_device = 'admin';
         $radio->password_device = 'g@nc0!';
 
-        $IP = '10.2.14.24'; //$this->IP;
+        // $IP = '10.2.14.24'; 
+        $IP = $this->IP;
 
         $response = new GetInformatioRadio($radio, $IP);
 
@@ -194,7 +196,7 @@ class GetInformationRadioTest extends TestCase
         $radio->user_device = 'admin';
         $radio->password_device = 'g@nc0!';
 
-        $IP = '10.3.3.87';
+        $IP = '192.168.254.169';
 
         $response = new GetInformatioRadio($radio, $IP);
 
@@ -238,11 +240,12 @@ class GetInformationRadioTest extends TestCase
         $radio->user_device = 'admin';
         $radio->password_device = 'g@nc0!';
 
-        $IP = '10.3.3.87'; //$this->IP;
+        // $IP = '10.3.3.87'; 
+        $IP = $this->IP;
 
         $response = new GetInformatioRadio($radio, $IP);
 
-        $this->assertContains('RING1-VANEGA', $response->getSSID() );
+        $this->assertContains('MetroIT', $response->getSSID() );
         $this->assertIsNotFloat($response->getIfconfig());
         $this->assertIsNotBool($response->getIfconfig());
 
@@ -255,7 +258,8 @@ class GetInformationRadioTest extends TestCase
         $radio->user_device = 'admin';
         $radio->password_device = 'g@nc0!';
 
-        $IP = '10.3.3.87'; //$this->IP;
+        // $IP = '10.3.3.87'; 
+        $IP = $this->IP;
 
         $response = new GetInformatioRadio($radio, $IP);
 
@@ -274,13 +278,13 @@ class GetInformationRadioTest extends TestCase
         $radio->user_device = 'admin';
         $radio->password_device = 'g@nc0!';
 
-        $IP = '10.3.3.87'; //$this->IP;
+        $IP = '192.168.254.168'; 
+        $IP = '192.168.254.169'; 
+        // $IP = $this->IP;
 
         $response = new GetInformatioRadio($radio, $IP);
 
-        $this->assertIsFloat($response->getCCQ());
-
-
+        $this->assertIsString($response->getCCQ());
     }
 
     public function test_get_frequency ()
@@ -289,7 +293,8 @@ class GetInformationRadioTest extends TestCase
         $radio->user_device = 'admin';
         $radio->password_device = 'g@nc0!';
 
-        $IP = '10.3.3.87'; //$this->IP;
+        // $IP = '10.3.3.87'; 
+        $IP = $this->IP;
 
 
         $response = new GetInformatioRadio($radio, $IP);
@@ -324,7 +329,8 @@ class GetInformationRadioTest extends TestCase
         $radio->user_device = 'admin';
         $radio->password_device = 'g@nc0!';
 
-        $IP = '10.3.3.87'; //$this->IP;
+        // $IP = '10.3.3.87'; 
+        $IP = $this->IP;
 
 
         $response = new GetInformatioRadio($radio, $IP);
@@ -341,7 +347,8 @@ class GetInformationRadioTest extends TestCase
         $radio->password_device = 'g@nc0!';
 
 //        $IP = $this->IP;
-        $IP = '10.3.3.87'; //$this->IP;
+        // $IP = '10.3.3.87'; 
+        $IP = $this->IP;
 
 
         $response = new GetInformatioRadio($radio, $IP);
