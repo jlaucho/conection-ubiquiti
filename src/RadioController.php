@@ -30,10 +30,7 @@ abstract class RadioController extends Controller
         $response['IP'] = $IP;
         // $this->getConection($radio);
 
-        // $passwords = config('ConectionUbiquiti.password_available');
-        $passwords = ['g@nc0!', 'g@nc0MCBO!'];
-
-        // dd($passwords);
+         $passwords = config('ConectionUbiquiti.password_available');
 
         foreach ($passwords as $password){
 
@@ -42,20 +39,26 @@ abstract class RadioController extends Controller
 
             $this->getConection($radio);
 
-            if(!$this->status_device_conection[0] && $this->status_device_conection[2] == 'password'){
+            if(!$this->status_device_conection[0] && $this->status_device_conection[2] == 'conection') {
+                $response[$this->ip]['IP'] = $IP;
                 $response[$this->ip]['Conection'] = false;
                 $response[$this->ip]['status'] = $this->status_device_conection[1];
+                $response[$this->ip]['password'] = 'S/I';
+                 break;
+            }
+
+            if(!$this->status_device_conection[0] && $this->status_device_conection[2] == 'password'){
+                $response[$this->ip]['IP'] = $IP;
+                $response[$this->ip]['Conection'] = false;
+                $response[$this->ip]['status'] = $this->status_device_conection[1];
+                $response[$this->ip]['password'] = 'S/I';
                 continue;
             }
             if($this->status_device_conection[0]) break;
         }
 
-        if(!$this->status_device_conection[0] && $this->status_device_conection[2] == 'conection') {
-            $response[$this->ip]['Conection'] = false;
-            $response[$this->ip]['status'] = $this->status_device_conection[1];
-            // continue;
-        }
         if($this->status_device_conection[0]) {
+            $response[$this->ip]['IP'] = $IP;
             $response[$this->ip]['Conection'] = true;
             $response[$this->ip]['status'] = $this->status_device_conection[1];
             $response[$this->ip]['password'] = $password;

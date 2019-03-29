@@ -107,14 +107,19 @@ class MethodGetInformation extends RadioController
         return strpos($this->getIfconfig(), 'eth0') > 0 ? true : false;
     }
 
-    public function tshaperActive(): bool
+    public function tshaperActive()
     {
-        $preg_array = array();
-        if (preg_match('/^tshaper.status=[a-z]{3,}$/sm', $this->system, $preg_array))
-        {
-            $preg_array = explode('=', $preg_array[0]);
+        try {
 
-            return $preg_array[1] == 'enabled' ? true : false;
+            $preg_array = array();
+            if (preg_match('/^tshaper.status=[a-z]{3,}$/sm', $this->system, $preg_array))
+            {
+                $preg_array = explode('=', $preg_array[0]);
+
+                return $preg_array[1] == 'enabled' ? 1 : 0;
+            }
+        } catch (\Exception $e) {
+            dd($e, $preg_array);
         }
     }
 

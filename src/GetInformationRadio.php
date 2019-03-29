@@ -68,7 +68,7 @@ class GetInformatioRadio extends MethodGetInformation
         return $this->ifconfig;
     }
 
-    public function getTshaperActive(): bool {
+    public function getTshaperActive() {
         return $this->tshaperActive();
     }
 
