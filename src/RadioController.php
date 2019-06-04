@@ -5,6 +5,7 @@ namespace jlaucho\conection_ubiquiti;
 use App\Http\Controllers\Controller;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use jlaucho\conection_ubiquiti\Exception\AutenticationDeviceException;
 use jlaucho\conection_ubiquiti\Models\InformationRadio;
 use phpseclib\Net\SSH2;
@@ -23,6 +24,8 @@ abstract class RadioController extends Controller
 
     public function __construct(InformationRadio $radio, string $IP)
     {
+
+//        $IP = '10.3.0.1';
 
         $this->interface = 'eth0';
         $this->ip = $IP;
@@ -57,14 +60,25 @@ abstract class RadioController extends Controller
                 $response[$this->ip]['IP'] = $IP;
                 $response[$this->ip]['Conection'] = false;
                 $response[$this->ip]['status'] = $this->status_device_conection[1];
+                $response[$this->ip]['type'] = $this->status_device_conection[2];
                 $response[$this->ip]['password'] = 'S/I';
                  break;
+            }
+
+            if(!$this->status_device_conection[0] && $this->status_device_conection[2] == 'refused') {
+                $response[$this->ip]['IP'] = $IP;
+                $response[$this->ip]['Conection'] = false;
+                $response[$this->ip]['status'] = $this->status_device_conection[1];
+                $response[$this->ip]['type'] = $this->status_device_conection[2];
+                $response[$this->ip]['password'] = 'S/I';
+                break;
             }
 
             if(!$this->status_device_conection[0] && $this->status_device_conection[2] == 'password'){
                 $response[$this->ip]['IP'] = $IP;
                 $response[$this->ip]['Conection'] = false;
                 $response[$this->ip]['status'] = $this->status_device_conection[1];
+                $response[$this->ip]['type'] = $this->status_device_conection[2];
                 $response[$this->ip]['password'] = 'S/I';
                 continue;
             }
@@ -136,6 +150,10 @@ abstract class RadioController extends Controller
                return;
             }
         } catch (\Exception $e) {
+            if(Str::contains($e->getMessage(), 'refused')){
+                $this->stopFaulire("Error de comunicacion con el equipo", "refused");
+                return;
+            }
             $this->stopFaulire("Error de comunicacion con el equipo", "conection");
             return;
         }
