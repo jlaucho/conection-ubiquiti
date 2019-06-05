@@ -146,7 +146,7 @@ abstract class RadioController extends Controller
 
         try {
             if (!$this->ssh->login($radio->user_device, $radio->password_device)) {
-                $this->stopFaulire("Error de autenticacion, revise credenciales", "password");
+                $this->stopFaulire("Error de credenciales", "password");
                return;
             }
         } catch (\Exception $e) {
@@ -154,12 +154,12 @@ abstract class RadioController extends Controller
                 $this->stopFaulire("Conexion refused", "refused");
                 return;
             }
-            $this->stopFaulire("Error de comunicacion con el equipo", "conection");
+            $this->stopFaulire("Host no responde", "conection");
             return;
         }
 
         $this->status_device_conection[0] = true;
-        $this->status_device_conection[1] = "Conexion establecida correctamente";
+        $this->status_device_conection[1] = "Conexion correcta";
 
         $this->ifconfig = $this->ifconfig();
         $this->system = $this->system();
