@@ -151,7 +151,7 @@ abstract class RadioController extends Controller
             }
         } catch (\Exception $e) {
             if(Str::contains($e->getMessage(), 'refused')){
-                $this->stopFaulire("Error de comunicacion refused", "refused");
+                $this->stopFaulire("Conexion refused", "refused");
                 return;
             }
             $this->stopFaulire("Error de comunicacion con el equipo", "conection");
