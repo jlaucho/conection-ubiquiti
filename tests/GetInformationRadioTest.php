@@ -104,7 +104,7 @@ class GetInformationRadioTest extends TestCase
 
         $response = new GetInformatioRadio($radio, $IP);
 
-        $this->assertContains('LiteBeam', $response->getDeviceModel());
+        $this->assertStringContainsString('LiteBeam', $response->getDeviceModel());
         $this->assertIsNotBool($response->getDeviceModel());
 
     }
@@ -132,7 +132,7 @@ class GetInformationRadioTest extends TestCase
 
         $response = new GetInformatioRadio($radio, $IP);
 
-        $this->assertContains('netconf', $response->getSystem());
+        $this->assertStringContainsString('netconf', $response->getSystem());
         $this->assertIsNotBool($response->getSystem());
 
     }
@@ -146,7 +146,9 @@ class GetInformationRadioTest extends TestCase
 
         $response = new GetInformatioRadio($radio, $IP);
 
-        $this->assertTrue($response->getTshaperActive());
+//        dd($response->getTshaperActive());
+
+        $this->assertEquals(1, $response->getTshaperActive());
     }
 
     public function test_rate_down_kbps () {
@@ -200,7 +202,7 @@ class GetInformationRadioTest extends TestCase
 
         $response = new GetInformatioRadio($radio, $IP);
 
-        $this->assertContains('minutos', $response->getTimeUp() );
+        $this->assertStringContainsString('minutos', $response->getTimeUp() );
     }
 
     public function test_get_tshaper_active ()
@@ -213,7 +215,7 @@ class GetInformationRadioTest extends TestCase
 
         $response = new GetInformatioRadio($radio, $IP);
 
-        $this->assertIsBool($response->getTshaperActive() );
+        $this->assertIsNumeric($response->getTshaperActive() );
 
     }
 
@@ -227,7 +229,7 @@ class GetInformationRadioTest extends TestCase
 
         $response = new GetInformatioRadio($radio, $IP);
 
-        $this->assertContains('BROADCAST RUNNING', $response->getIfconfig() );
+        $this->assertStringContainsString('BROADCAST RUNNING', $response->getIfconfig() );
         $this->assertIsNotFloat($response->getIfconfig());
         $this->assertIsNotBool($response->getIfconfig());
 
@@ -245,7 +247,7 @@ class GetInformationRadioTest extends TestCase
 
         $response = new GetInformatioRadio($radio, $IP);
 
-        $this->assertContains('MetroIT', $response->getSSID() );
+        $this->assertStringContainsString('MetroIT', $response->getSSID() );
         $this->assertIsNotFloat($response->getIfconfig());
         $this->assertIsNotBool($response->getIfconfig());
 
@@ -312,8 +314,8 @@ class GetInformationRadioTest extends TestCase
         $radio->user_device = 'admin';
         $radio->password_device = 'g@nc0MCBO!';
 
-        $IP = '192.168.254.168'; //$this->IP;
-//        $IP = '192.168.254.169'; //$this->IP;
+//        $IP = '192.168.254.168'; //$this->IP;
+        $IP = '192.168.254.169'; //$this->IP;
 
 
         $response = new GetInformatioRadio($radio, $IP);
@@ -365,8 +367,8 @@ class GetInformationRadioTest extends TestCase
         $radio->user_device = 'admin';
         $radio->password_device = 'g@nc0MCBO!';
 
-        $IP = '192.168.254.168'; //$this->IP;
-//        $IP = '192.168.254.169'; //$this->IP;
+//        $IP = '192.168.254.168'; //$this->IP;
+        $IP = '192.168.254.169'; //$this->IP;
 
         $response = new GetInformatioRadio($radio, $IP);
 

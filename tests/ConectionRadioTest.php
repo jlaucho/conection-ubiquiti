@@ -30,7 +30,7 @@ class ConectionRadioTest extends TestCase
         $response = new GetInformatioRadio($radio, $IP);
 
         $this->assertFalse($response->status_device_conection[0]);
-        $this->assertContains('Error de comunicacion con el equipo', $response->status_device_conection[1]);
+        $this->assertStringContainsString('Host no responde', $response->status_device_conection[1]);
     }
 
     public function test_radio_error_auth()
@@ -45,6 +45,6 @@ class ConectionRadioTest extends TestCase
         $response = new GetInformatioRadio($radio, $IP);
 
         $this->assertFalse($response->status_device_conection[0]);
-        $this->assertContains('Error de autenticacion,', $response->status_device_conection[1]);
+        $this->assertStringContainsString('Error de credenciales', $response->status_device_conection[1]);
     }
 }

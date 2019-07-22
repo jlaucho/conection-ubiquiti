@@ -25,15 +25,11 @@ abstract class RadioController extends Controller
     public function __construct(InformationRadio $radio, string $IP)
     {
 
-//        $IP = '10.3.0.1';
 
         $this->interface = 'eth0';
         $this->ip = $IP;
 
         $response['IP'] = $IP;
-        // $this->getConection($radio);
-
-//         $passwords = config('ConectionUbiquiti.password_available');
 
         $passwords = [
 
