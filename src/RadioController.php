@@ -23,7 +23,6 @@ abstract class RadioController extends Controller
 
     public function __construct(InformationRadio $radio, string $IP)
     {
-
         $this->interface = 'eth0';
         $this->ip = $IP;
 

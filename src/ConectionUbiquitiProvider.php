@@ -15,10 +15,8 @@ class ConectionUbiquitiProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__ . '/config/ConectionUbiquiti.php' => config_path('ConectionUbiquiti.php'),
-            __DIR__ . '/UbiquitiModel.php' => base_path('app/UbiquitiModel.php'),
-            __DIR__ . '/database/migrations/' => database_path('migrations')],
+            __DIR__ . '/UbiquitiModel.php' => base_path('app/UbiquitiModel.php')],
             'migrations');
-        $this->loadMigrationsFrom(__DIR__ . '/database/migrations/2019_01_18_180028_informatio_devices.php');
     }
 
     /**
