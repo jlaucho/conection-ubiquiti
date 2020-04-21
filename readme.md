@@ -9,7 +9,7 @@ is config for laravel 5.7 to up.
 After instalation publish package, this created in `config/ConectionUbiquiti.php`
 the key *password_available* your type array to posibles password.
 
-###How usage
+### How usage
 
 * Need `use jlaucho\conection_ubiquiti\Models\InformationRadio;`
 * Instance example: 
@@ -18,7 +18,7 @@ the key *password_available* your type array to posibles password.
   $device->user_device = 'user';
   $device->password_device = 'password';
   ```
-###Method GET.
+### Method GET.
 `use jlaucho\conection_ubiquiti\Controllers\GetInformatioRadio;`
 * instance `$information = new GetInformatioRadio($device, $ip)`
 
