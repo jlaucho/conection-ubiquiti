@@ -1,9 +1,9 @@
-##Conection Ubiquiti
+## Conection Ubiquiti
 
 This package is created for GET and SET configuration, in device, is work in firmware 6 and 8, 
 is config for laravel 5.7 to up.
 
-###Instalation
+### Instalation
 `composer require jlaucho/conection-ubiquiti`
 
 After instalation publish package, this created in `config/ConectionUbiquiti.php`
@@ -22,7 +22,7 @@ the key *password_available* your type array to posibles password.
 `use jlaucho\conection_ubiquiti\Controllers\GetInformatioRadio;`
 * instance `$information = new GetInformatioRadio($device, $ip)`
 
-####Method available
+#### Method available
 
 Return Name device
 ```
