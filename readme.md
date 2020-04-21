@@ -18,11 +18,11 @@ the key *password_available* your type array to posibles password.
   $device->user_device = 'user';
   $device->password_device = 'password';
   ```
-### Method GET.
+### Method for recover information (GET).
 `use jlaucho\conection_ubiquiti\Controllers\GetInformatioRadio;`
 * instance `$information = new GetInformatioRadio($device, $ip)`
 
-#### Method available
+#### Method GET available
 
 Return Name device
 ```
