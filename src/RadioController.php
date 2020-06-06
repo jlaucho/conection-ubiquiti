@@ -18,14 +18,18 @@ abstract class RadioController extends Controller
     public $system;
     private $ip;
     public $interface;
+    public $interfaceTshaper;
     public $mca_status;
     public $status_device_conection = [];
     public $response;
 
     public function __construct(InformationRadio $radio, string $IP)
     {
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> f6879c8e373c6ace80ab7106677be9959a97c943
         $this->interface = 'eth0';
         $this->ip = $IP;
 
@@ -114,6 +118,10 @@ abstract class RadioController extends Controller
         return $this->numberEth0();
     }
 
+    public function getNumberTshaper(): int {
+        return $this->numberInterfaceTshaperEth0();
+    }
+
     public function getNumberAth0(){
         return $this->numberAth0();
     }
@@ -189,6 +197,17 @@ abstract class RadioController extends Controller
             $preg_array = explode('.', $preg_array[0]);
             return $eth0_num = intval($preg_array[1]);
         }
+    }
+
+    private function numberInterfaceTshaperEth0(): int
+    {
+        $preg_array = array();
+        if (preg_match('/^tshaper(?|.{1,3}|)\.[0-9]{1,2}\.devname=eth0$/sm', $this->system, $preg_array))
+        {
+            $preg_array = explode('.', $preg_array[0]);
+            return $eth0_num = intval($preg_array[1]);
+        }
+        return -1;
     }
 
     private function numberAth0(): int

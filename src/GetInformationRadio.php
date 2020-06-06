@@ -38,19 +38,22 @@ class GetInformatioRadio extends MethodGetInformation
 
     public function getRateDownKbps(): int
     {
-        if( !$this->tshaperActive()){
-            return -1;
+        if ($this->getNumberTshaper()){
+
+            return $this->rateDownKbps();
         }
 
-        return $this->rateDownKbps();
+        return -1;
     }
 
     public function getRateUpKbps(): int
     {
-        if( !$this->tshaperActive()){
-            return -1;
+        if ($this->getNumberTshaper()){
+
+            return $this->rateUpKbps();
         }
-        return $this->rateUpKbps();
+
+        return -1;
     }
 
     public function getNumberConections()

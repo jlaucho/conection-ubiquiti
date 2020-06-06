@@ -21,8 +21,8 @@ class GetInformationRadioTest extends TestCase
     public function test_radio_information()
     {
         $radio = new InformationRadio();
-        $radio->user_device = 'admin';
-        $radio->password_device = 'g@nc0MCBO!';
+            $radio->user_device = 'admin';
+            $radio->password_device = 'g@nc0MCBO!';
 
         $IP = $this->IP;
 
@@ -183,7 +183,7 @@ class GetInformationRadioTest extends TestCase
         $radio->user_device = 'admin';
         $radio->password_device = 'g@nc0!';
 
-        // $IP = '10.2.14.24'; 
+        // $IP = '10.2.14.24';
         $IP = $this->IP;
 
         $response = new GetInformatioRadio($radio, $IP);
@@ -242,7 +242,7 @@ class GetInformationRadioTest extends TestCase
         $radio->user_device = 'admin';
         $radio->password_device = 'g@nc0!';
 
-        // $IP = '10.3.3.87'; 
+        // $IP = '10.3.3.87';
         $IP = $this->IP;
 
         $response = new GetInformatioRadio($radio, $IP);
@@ -260,7 +260,7 @@ class GetInformationRadioTest extends TestCase
         $radio->user_device = 'admin';
         $radio->password_device = 'g@nc0!';
 
-        // $IP = '10.3.3.87'; 
+        // $IP = '10.3.3.87';
         $IP = $this->IP;
 
         $response = new GetInformatioRadio($radio, $IP);
@@ -280,8 +280,8 @@ class GetInformationRadioTest extends TestCase
         $radio->user_device = 'admin';
         $radio->password_device = 'g@nc0!';
 
-        $IP = '192.168.254.168'; 
-        $IP = '192.168.254.169'; 
+        $IP = '192.168.254.168';
+        $IP = '192.168.254.169';
         // $IP = $this->IP;
 
         $response = new GetInformatioRadio($radio, $IP);
@@ -295,7 +295,7 @@ class GetInformationRadioTest extends TestCase
         $radio->user_device = 'admin';
         $radio->password_device = 'g@nc0!';
 
-        // $IP = '10.3.3.87'; 
+        // $IP = '10.3.3.87';
         $IP = $this->IP;
 
 
@@ -331,7 +331,7 @@ class GetInformationRadioTest extends TestCase
         $radio->user_device = 'admin';
         $radio->password_device = 'g@nc0!';
 
-        // $IP = '10.3.3.87'; 
+        // $IP = '10.3.3.87';
         $IP = $this->IP;
 
 
@@ -349,7 +349,7 @@ class GetInformationRadioTest extends TestCase
         $radio->password_device = 'g@nc0!';
 
 //        $IP = $this->IP;
-        // $IP = '10.3.3.87'; 
+        // $IP = '10.3.3.87';
         $IP = $this->IP;
 
 

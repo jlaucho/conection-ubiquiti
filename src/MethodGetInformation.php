@@ -10,7 +10,7 @@ class MethodGetInformation extends RadioController
 //        dd($this->system);
 //        dd('tshaper.'.$this->getNumberEth0().'.output.rate=');
         $preg_array = array();
-        if (preg_match('/^tshaper.'.$this->getNumberEth0().'.output.rate=[0-9]{2,}$/sm', $this->system, $preg_array))
+        if (preg_match('/^tshaper.'.$this->getNumberTshaper().'.output.rate=[0-9]{2,}$/sm', $this->system, $preg_array))
         {
             $preg_array = explode('=', $preg_array[0]);
 
@@ -22,7 +22,7 @@ class MethodGetInformation extends RadioController
     public function rateUpKbps (): int
     {
         $preg_array = array();
-        if (preg_match('/^tshaper.'.$this->getNumberEth0().'.input.rate=[0-9]{2,}$/sm', $this->system, $preg_array))
+        if (preg_match('/^tshaper.'.$this->getNumberTshaper().'.input.rate=[0-9]{2,}$/sm', $this->system, $preg_array))
         {
             $preg_array = explode('=', $preg_array[0]);
 
