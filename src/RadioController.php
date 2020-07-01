@@ -30,20 +30,7 @@ abstract class RadioController extends Controller
 
         $response['IP'] = $IP;
 
-        $passwords = [
-
-            // Contraseñas más comunes
-            'g@nc0!',
-            'g@nc0MCBO!',
-            'g@nco!',
-            'g@nc0MCBO',
-            'g@nc0GB!',
-            'g@ncoGB!',
-            'g@nc0gb!',
-            'g@ncogb!',
-            'g@nc0!@1',
-            'g@nco!@1',
-            ];
+        $passwords = config('ConectionUbiquiti.password_available');
 
         foreach ($passwords as $password){
 
