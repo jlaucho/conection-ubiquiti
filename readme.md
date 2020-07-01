@@ -9,6 +9,7 @@ is config for laravel 5.7 to up.
 After instalation publish package, this created in `config/ConectionUbiquiti.php`
 the key *password_available* your type array to posibles password.
 
+
 ### How usage
 
 * Need `use jlaucho\conection_ubiquiti\Models\InformationRadio;`
