@@ -16,8 +16,8 @@ the key *password_available* your type array to posibles password.
     ```
   $device = new InformationRadio()
   $device->user_device = 'user';
-  $device->password_device = 'password';
   ```
+  this password recover, config file `App\Config\ConectionUbiquiti.php`, this key `password_available`
 ### Method for recover information (GET).
 `use jlaucho\conection_ubiquiti\Controllers\GetInformatioRadio;`
 * instance `$information = new GetInformatioRadio($device, $ip)`
@@ -40,10 +40,11 @@ Return boolean if eth0 is activate
 ```
 $information->getInterfaceEth0Up(): bool
 ```
-Return Mode configuration device, example router, bridge
+Return Mode configuration device, example: router, bridge
 ```
 $information->getModeRadio(): string
 ```
+Return configuration system.cfg
 ```
 public function getSystem(): string
 {
@@ -54,70 +55,64 @@ Return speed download in kbps, if tshaper interface eth0 is active
 ```
 $information->getRateDownKbps(): int
 ```
-    public function getRateUpKbps(): int
-    {
-        if( !$this->tshaperActive()){
-            return -1;
-        }
-        return $this->rateUpKbps();
-    }
+Return speed up in kbps, if tshaper interface eth0 is active
+```
+$information->getRateUpKbps(): int
+```
+Return simultaneous connections at the moment
+```
+    $information->getNumberConections(): int
+```
+Return time up device in seconds
+```
+    $information->getTimeUp(): string
+```
+Return ifconfig device
+```
+    $information->getIfconfig(): string
+``` 
+  Return Tshaper active (booblean)
+``` 
+    $information->getTshaperActive(): bool
+```
+Return SSID device
+```
+    $information->getSSID(): string
+```
 
-    public function getNumberConections()
-    {
-        return $this->numberConections();
-    }
-
-    public function getTimeUp(): string
-    {
-        return $this->timeUp();
-    }
-
-    public function getIfconfig(): string
-    {
-        return $this->ifconfig;
-    }
-
-    public function getTshaperActive() {
-        return $this->tshaperActive();
-    }
-
-    public function getSSID() {
-        return $this->ssid();
-    }
-
-    public function getSignal(): int {
-        return $this->signal();
-    }
-
-    public function getCCQ() {
-        return $this->CCQ();
-    }
-
-    public function getFrequency() {
-        return $this->frequency();
-    }
-
-    public function getFirmwareVersion() {
-        return $this->firmwareVersion();
-    }
-
-    public function getChannelBandwidth() {
-        return $this->channelBandwidth();
-    }
-
-    public function getLanConection (): bool {
-        return $this->lanConection();
-    }
-
-    public function getBaseVersionFirmware (): string {
-        return $this->baseVersionFirmware();
-    }
-
-    public function getWirelessChannelList (): array {
-        return $this->wireleesChannelList();
-    }
-
-    public function getWireleesChannelStatus() {
-        return $this->wireleesChannelStatus();
-    }
-
+Return signal work device
+```
+    $information->getSignal(): int
+```
+Return CCQ device
+```
+    $information->getCCQ()
+```    
+Return Frequency device
+```
+    $information->getFrequency(): int
+```
+Return version Firmware device
+```
+    $information->getFirmwareVersion() 
+```
+Return the band the device works
+```
+    $information->getChannelBandwidth(): int
+```
+Return if other device conect on lan conection this (boolean)
+```
+    $information->getLanConection(): bool 
+```
+Return base version example: V8, V6
+```
+    $information->getBaseVersionFirmware (): string 
+```   
+Return list wireless channel available (array)
+```
+    $information->getWirelessChannelList (): array 
+```   
+Return status wireles channel (boolean) 
+```
+    public function getWireleesChannelStatus(): bool
+```
